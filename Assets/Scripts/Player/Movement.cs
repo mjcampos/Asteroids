@@ -47,8 +47,14 @@ namespace Player
         {
             Vector2 movement = value.Get<Vector2>();
             
-            _rotationDirection = -movement.x;
             _direction = movement.y;
+        }
+
+        void OnRotate(InputValue value)
+        {
+            Vector2 rotation = value.Get<Vector2>();
+            
+            _rotationDirection = -rotation.x;
         }
 
         void FixedUpdate()
