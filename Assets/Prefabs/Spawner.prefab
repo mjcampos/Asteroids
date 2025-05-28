@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1075811516567758467}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: RokSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   minSpawnDelay: 1
   maxSpawnDelay: 3
   spawnArea: {fileID: 6604656492609919921}
-  spawnSide: {fileID: 11400000, guid: 6b221584c61ff9e469b734148faa3bb8, type: 2}
+  spawnSide: 0
   minAngle: 120
   maxAngle: 240
   lineLength: 4

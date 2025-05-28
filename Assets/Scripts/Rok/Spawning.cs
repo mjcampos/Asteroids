@@ -4,8 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Rok {
-    public enum SpawnSide
-    {
+    public enum SpawnSide {
         Top,
         Bottom,
         Left,
@@ -14,6 +13,7 @@ namespace Rok {
     
     public class Spawning : MonoBehaviour {
         [SerializeField] RokScriptableObject rokScriptableObject;
+        [SerializeField] GameObject rokParent;
         
         [Header("Spawner Info")]
         [SerializeField] float minSpawnDelay = 1f;
@@ -35,6 +35,9 @@ namespace Rok {
                 yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
                 
                 GameObject rokInstance = Instantiate(rokScriptableObject.GenerateRandomAsteroid(), GetRandomPointInBounds(), Quaternion.identity);
+                
+                // Place the instance in the rok parent object
+                rokInstance.transform.SetParent(rokParent.transform);
                 
                 // Set up move direction and launch rok
                 Movement rokMovement = rokInstance.GetComponent<Movement>();
@@ -58,6 +61,8 @@ namespace Rok {
             
             return new Vector2(x, y);
         }
+
+        public SpawnSide GetSpawnSide() => spawnSide;
 
         void OnDrawGizmos() {
             if (spawnArea == null) return;
