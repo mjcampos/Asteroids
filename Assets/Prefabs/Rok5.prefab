@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 516498846967928166}
   - component: {fileID: -4966272221027106074}
+  - component: {fileID: 3370017982286631403}
   m_Layer: 0
   m_Name: Rok5
   m_TagString: Untagged
@@ -60,6 +61,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &3370017982286631403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115350073694576824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9849bbea4862b8b46abc652c575ef492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  pivot: {fileID: 4048400745190343706}
+  rotationSpeed: 25
 --- !u!1 &4048400745190343706
 GameObject:
   m_ObjectHideFlags: 0

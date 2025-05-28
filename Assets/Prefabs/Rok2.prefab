@@ -162,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6015762531689632074}
   - component: {fileID: 4193330190652509142}
+  - component: {fileID: 7830406063085387235}
   m_Layer: 0
   m_Name: Rok2
   m_TagString: Untagged
@@ -212,3 +213,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &7830406063085387235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718329697258745496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9849bbea4862b8b46abc652c575ef492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  pivot: {fileID: 5173186012320105291}
+  rotationSpeed: 25
