@@ -3,13 +3,23 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Rok
-{
+namespace Rok {
+    public enum SpawnSide
+    {
+        Top,
+        Bottom,
+        Left,
+        Right,
+    }
+    
     public class Spawning : MonoBehaviour {
         [SerializeField] RokScriptableObject rokScriptableObject;
+        
+        [Header("Spawner Info")]
         [SerializeField] float minSpawnDelay = 1f;
         [SerializeField] float maxSpawnDelay = 3f;
         [SerializeField] BoxCollider2D spawnArea;
+        [SerializeField] SpawnSide spawnSide;
         
         [Header("Spawn Angle")]
         [SerializeField] float minAngle = 120f;
@@ -32,6 +42,10 @@ namespace Rok
                 float angleRad = angleDeg * Mathf.Deg2Rad;
                 Vector2 moveDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)).normalized;
                 
+                // Set the rok's spawn side
+                Destroyer destroyer = rokInstance.GetComponent<Destroyer>();
+                
+                destroyer.SetSpawnSide(spawnSide);
                 rokMovement.Launch(moveDirection);
             }
         }

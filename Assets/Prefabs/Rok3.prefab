@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8548163936022690221}
   - component: {fileID: -6128524982516623487}
   - component: {fileID: 4520157677990609631}
+  - component: {fileID: 4274904672189775756}
   m_Layer: 0
   m_Name: Rok3
   m_TagString: Untagged
@@ -75,7 +76,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   pivot: {fileID: 7479216994213560267}
-  rotationSpeed: 25
+  minRotationSpeed: 20
+  maxRotationSpeed: 30
+--- !u!114 &4274904672189775756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968108986862057520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242035580d4b5ef419a5ebb62aeafcec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7479216994213560267
 GameObject:
   m_ObjectHideFlags: 0

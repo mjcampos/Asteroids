@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 516498846967928166}
   - component: {fileID: -4966272221027106074}
   - component: {fileID: 3370017982286631403}
+  - component: {fileID: 3415449968279948680}
   m_Layer: 0
   m_Name: Rok5
   m_TagString: Untagged
@@ -75,7 +76,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   pivot: {fileID: 4048400745190343706}
-  rotationSpeed: 25
+  minRotationSpeed: 20
+  maxRotationSpeed: 30
+--- !u!114 &3415449968279948680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115350073694576824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242035580d4b5ef419a5ebb62aeafcec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4048400745190343706
 GameObject:
   m_ObjectHideFlags: 0
