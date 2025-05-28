@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Rok {
     public class Destroyer : MonoBehaviour {
-        [SerializeField] SpawnSide spawnSide;
+        [SerializeField] SpawnSide originSide;
 
         public void SetSpawnSide(SpawnSide spawnSide)
         {
-            this.spawnSide = spawnSide;
+            originSide = spawnSide;
         }
     }
 }
