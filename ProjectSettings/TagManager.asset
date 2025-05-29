@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RokSpawner
   - Rok
+  - Laser
   layers:
   - Default
   - TransparentFX

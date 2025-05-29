@@ -20,6 +20,10 @@ namespace Rok {
                     StartCoroutine(DestroyAfterDelay());
                 }
             }
+
+            if (other.CompareTag("Laser")) {
+                Destroy(gameObject);
+            }
         }
 
         IEnumerator DestroyAfterDelay() {
