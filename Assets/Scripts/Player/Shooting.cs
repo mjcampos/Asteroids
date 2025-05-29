@@ -2,11 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player
-{
-    public class Shooting : MonoBehaviour
-    {
+namespace Player {
+    public class Shooting : MonoBehaviour {
         [SerializeField] float shootSpeed = 5f;
+        [SerializeField] GameObject laserPrefab;
 
         float _lastShootSpeed;
         
@@ -21,28 +20,27 @@ namespace Player
             //_animator.SetFloat("SpeedMultiplier", shootSpeed);
         }
 
-        void OnFire(InputValue value)
-        {
+        void OnFire(InputValue value) {
             _fireButtonPressed = value.isPressed;
         }
 
-        void Update()
-        {
+        void Update() {
             ShootSpeedChangeListener();
             
-            if (_fireButtonPressed && !_isShooting)
-            {
+            if (_fireButtonPressed && !_isShooting) {
                 // Mark the player as currently shooting
                 _isShooting = true;
             
-                Debug.Log("Player is shooting");
+                // Instantiate the laser
+                GameObject laser = Instantiate(laserPrefab, transform);
+                
+                laser.transform.parent = null;
             
                 _animator.SetTrigger("IsShooting");
             }
         }
 
-        void NoLongerShooting()
-        {
+        void NoLongerShooting() {
             _isShooting = false;
         }
 

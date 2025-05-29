@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 namespace Rok {
-    public class Destroyer : MonoBehaviour {
+    public class Destruction : MonoBehaviour {
         [SerializeField] SpawnSide originSide;
         [SerializeField] float destroyDelay = 1f;
 

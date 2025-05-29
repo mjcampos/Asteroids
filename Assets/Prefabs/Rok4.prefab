@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2760841637764852157}
   m_Layer: 0
   m_Name: Pivot
-  m_TagString: Untagged
+  m_TagString: Rok
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: -6568447255217747260}
   m_Layer: 0
   m_Name: Rok4
-  m_TagString: Untagged
+  m_TagString: Rok
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

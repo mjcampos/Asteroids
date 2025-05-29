@@ -51,9 +51,9 @@ namespace Rok {
                 Vector2 moveDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)).normalized;
                 
                 // Set the rok's spawn side
-                Destroyer destroyer = rokInstance.GetComponent<Destroyer>();
+                Destruction destruction = rokInstance.GetComponent<Destruction>();
                 
-                destroyer.SetSpawnSide(spawnSide);
+                destruction.SetSpawnSide(spawnSide);
                 rokMovement.Launch(moveDirection);
             }
         }
