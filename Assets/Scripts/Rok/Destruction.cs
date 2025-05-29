@@ -19,9 +19,7 @@ namespace Rok {
                 if (originSide != otherSide) {
                     StartCoroutine(DestroyAfterDelay());
                 }
-            }
-
-            if (other.CompareTag("Laser")) {
+            } else {
                 Destroy(gameObject);
             }
         }

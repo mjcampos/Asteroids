@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6393550158989423640}
   - component: {fileID: 2862816022177713840}
   - component: {fileID: 1197301831029365140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pivot
   m_TagString: Rok
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: -6162618004571543383}
   - component: {fileID: 5827271693413820289}
   - component: {fileID: 808879477668148363}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rok1
   m_TagString: Rok
   m_Icon: {fileID: 0}
