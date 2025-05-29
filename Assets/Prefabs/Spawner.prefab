@@ -91,9 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de56f0b238e7d1042a785e8896373a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rokScriptableObject: {fileID: 11400000, guid: a950dc3694029f74b8d0159c0b6a60bc, type: 2}
-  minSpawnDelay: 1
-  maxSpawnDelay: 3
+  rokRandomScriptableObject: {fileID: 11400000, guid: 85efd2df230d8c049bf8266158efa0ca, type: 2}
+  rokParent: {fileID: 0}
+  minSpawnDelay: 2
+  maxSpawnDelay: 4
   spawnArea: {fileID: 6604656492609919921}
   spawnSide: 0
   minAngle: 120

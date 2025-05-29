@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdf743d9de97bf44b29782a330b7568, type: 3}
+  m_Name: RokRandomScriptableObject
+  m_EditorClassIdentifier: 
+  smallRok: {fileID: 11400000, guid: a950dc3694029f74b8d0159c0b6a60bc, type: 2}
+  mediumRok: {fileID: 11400000, guid: 7f461a4620c784d4bb3b777d338d1f75, type: 2}
+  largeRok: {fileID: 11400000, guid: 5d92f88bc3c90f840a350fdd2d2f3593, type: 2}

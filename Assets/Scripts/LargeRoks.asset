@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a91f3373224e2a4db2fa507ad106cad, type: 3}
-  m_Name: SmallRoks
+  m_Name: LargeRoks
   m_EditorClassIdentifier: 
-  rokSize: 1
+  rokSize: 3
   rokPrefabs:
   - {fileID: 9039497524094576879, guid: 08437ec7b3cfecf42b9a034fc55330a7, type: 3}
   - {fileID: 8718329697258745496, guid: 3a3a39020e5689a448b6dd39e2efccfe, type: 3}

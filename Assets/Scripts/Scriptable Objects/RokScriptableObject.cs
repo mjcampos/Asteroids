@@ -1,12 +1,20 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RokSO", menuName = "Scriptable Objects/RokSO")]
-public class RokScriptableObject : ScriptableObject
-{
-    public GameObject[] asteroidPrefabs;
+public enum RokSize {
+    Small = 1,
+    Medium = 2,
+    Large = 3,
+}
+
+[CreateAssetMenu(fileName = "RokScriptableObject", menuName = "Scriptable Objects/RokSO")]
+public class RokScriptableObject : ScriptableObject {
+    public RokSize rokSize;
+    public GameObject[] rokPrefabs;
     
-    public GameObject GenerateRandomAsteroid()
+    public RokData GenerateRandomRok()
     {
-        return asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)];
+        GameObject rokInstance = rokPrefabs[Random.Range(0, rokPrefabs.Length)];
+        
+        return new RokData(rokInstance, rokSize);
     }
 }

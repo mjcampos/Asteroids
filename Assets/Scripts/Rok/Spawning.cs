@@ -12,7 +12,7 @@ namespace Rok {
     }
     
     public class Spawning : MonoBehaviour {
-        [SerializeField] RokScriptableObject rokScriptableObject;
+        [SerializeField] RokRandomScriptableObject rokRandomScriptableObject;
         [SerializeField] GameObject rokParent;
         
         [Header("Spawner Info")]
@@ -34,7 +34,12 @@ namespace Rok {
             while (true) {
                 yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
                 
-                GameObject rokInstance = Instantiate(rokScriptableObject.GenerateRandomAsteroid(), GetRandomPointInBounds(), Quaternion.identity);
+                // Spawn a rok
+                RokData rokData = rokRandomScriptableObject.GenerateRandomRok();
+                GameObject rokInstance = Instantiate(rokData.Prefab, GetRandomPointInBounds(), Quaternion.identity);
+                
+                // Set the rok size
+                rokInstance.transform.localScale = Vector3.one * rokData.Size;
                 
                 // Place the instance in the rok parent object
                 rokInstance.transform.SetParent(rokParent.transform);
