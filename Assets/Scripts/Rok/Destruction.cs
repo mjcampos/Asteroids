@@ -5,11 +5,12 @@ using UnityEngine;
 namespace Rok {
     public class Destruction : MonoBehaviour {
         [SerializeField] SpawnSide originSide;
+        [SerializeField] RokSize rokSize;
         [SerializeField] float destroyDelay = 1f;
 
-        public void SetSpawnSide(SpawnSide spawnSide)
-        {
-            originSide = spawnSide;
+        public void SetProperties(SpawnSide _originSide, RokSize _rokSize) {
+            originSide = _originSide;
+            rokSize = _rokSize;
         }
 
         /**
@@ -28,6 +29,19 @@ namespace Rok {
                 }
             } else {
                 // 2-3. Collides with player or laser
+                switch (rokSize) {
+                    case RokSize.Large:
+                        GlobalSpawner.Instance.SpawnRok(RokSize.Medium, transform.position);
+                        break;
+                    case RokSize.Medium:
+                        GlobalSpawner.Instance.SpawnRok(RokSize.Small, transform.position);
+                        break;
+                    case RokSize.Small:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+                
                 Destroy(gameObject);
             }
         }

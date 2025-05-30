@@ -6,8 +6,7 @@ public class RokRandomScriptableObject : ScriptableObject {
     public RokScriptableObject mediumRok;
     public RokScriptableObject largeRok;
     
-    public RokData GenerateRandomRok()
-    {
+    public RokData GenerateRandomRok() {
         float roll = Random.value;
 
         if (roll < 0.5f) {
@@ -17,5 +16,13 @@ public class RokRandomScriptableObject : ScriptableObject {
         } else {
             return largeRok.GenerateRandomRok();
         }
+    }
+    
+    public RokData GenerateMediumRok() {
+        return mediumRok.GenerateRandomRok();
+    }
+
+    public RokData GenerateSmallRok() {
+        return smallRok.GenerateRandomRok();
     }
 }

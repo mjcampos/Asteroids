@@ -9,6 +9,7 @@ namespace Rok {
         Bottom,
         Left,
         Right,
+        Center
     }
     
     public class Spawning : MonoBehaviour {
@@ -50,11 +51,12 @@ namespace Rok {
                 float angleRad = angleDeg * Mathf.Deg2Rad;
                 Vector2 moveDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)).normalized;
                 
+                rokMovement.Launch(moveDirection);
+                
                 // Set the rok's spawn side
                 Destruction destruction = rokInstance.GetComponent<Destruction>();
                 
-                destruction.SetSpawnSide(spawnSide);
-                rokMovement.Launch(moveDirection);
+                destruction.SetProperties(spawnSide, rokData.Size);
             }
         }
 
