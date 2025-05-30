@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originSide: 0
   destroyDelay: 1
+  rokRandomScriptableObject: {fileID: 11400000, guid: 85efd2df230d8c049bf8266158efa0ca, type: 2}
 --- !u!1 &4048400745190343706
 GameObject:
   m_ObjectHideFlags: 0

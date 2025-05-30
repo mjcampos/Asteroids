@@ -13,9 +13,4 @@ MonoBehaviour:
   m_Name: MediumRoks
   m_EditorClassIdentifier: 
   rokSize: 2
-  rokPrefabs:
-  - {fileID: 9039497524094576879, guid: 08437ec7b3cfecf42b9a034fc55330a7, type: 3}
-  - {fileID: 8718329697258745496, guid: 3a3a39020e5689a448b6dd39e2efccfe, type: 3}
-  - {fileID: 2968108986862057520, guid: 09384ecaa5332fc45a0f74d069447d76, type: 3}
-  - {fileID: 3732410956238469510, guid: 1df519933de922548b64c38d3013e58b, type: 3}
-  - {fileID: 2115350073694576824, guid: 463d23a62388788488cbe91dfe705159, type: 3}
+  rokPrefabsSO: {fileID: 11400000, guid: 175512fedc8b8ed44a93de843371686a, type: 2}

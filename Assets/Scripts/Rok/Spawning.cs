@@ -39,7 +39,7 @@ namespace Rok {
                 GameObject rokInstance = Instantiate(rokData.Prefab, GetRandomPointInBounds(), Quaternion.identity);
                 
                 // Set the rok size
-                rokInstance.transform.localScale = Vector3.one * rokData.Size;
+                rokInstance.transform.localScale = Vector3.one * (int)rokData.Size;
                 
                 // Place the instance in the rok parent object
                 rokInstance.transform.SetParent(rokParent.transform);
