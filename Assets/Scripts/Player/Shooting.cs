@@ -13,11 +13,10 @@ namespace Player {
 
         bool _fireButtonPressed;
         bool _isShooting;
+        bool _isRecoveringFromHit = false;
         
         void Start() { 
             _animator = GetComponent<Animator>();
-            
-            //_animator.SetFloat("SpeedMultiplier", shootSpeed);
         }
 
         void OnFire(InputValue value) {
@@ -27,7 +26,7 @@ namespace Player {
         void Update() {
             ShootSpeedChangeListener();
             
-            if (_fireButtonPressed && !_isShooting) {
+            if (_fireButtonPressed && !_isShooting && !_isRecoveringFromHit) {
                 // Mark the player as currently shooting
                 _isShooting = true;
             
@@ -44,14 +43,19 @@ namespace Player {
             _isShooting = false;
         }
 
-        void ShootSpeedChangeListener()
-        {
+        // This will allow shooting speed to be changed at runtime
+        void ShootSpeedChangeListener() {
             if (!Mathf.Approximately(_lastShootSpeed, shootSpeed))
             {
                 _lastShootSpeed = shootSpeed;
                 
                 _animator.SetFloat("SpeedMultiplier", shootSpeed);
             }
+        }
+
+        public void SetIsRecoveringFromHit(bool isRecovering)
+        {
+            _isRecoveringFromHit = isRecovering;
         }
     }
 }
