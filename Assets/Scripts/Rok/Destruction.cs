@@ -7,6 +7,7 @@ namespace Rok {
         [SerializeField] SpawnSide originSide;
         [SerializeField] RokSize rokSize;
         [SerializeField] float destroyDelay = 1f;
+        [SerializeField] GameObject explosionParticles;
 
         public void SetProperties(SpawnSide _originSide, RokSize _rokSize) {
             originSide = _originSide;
@@ -41,6 +42,10 @@ namespace Rok {
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+                GameObject explosionInstance = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+                
+                explosionInstance.transform.localScale = Vector3.one * (int)rokSize;
+                explosionInstance.transform.SetParent(null);
                 
                 Destroy(gameObject);
             }

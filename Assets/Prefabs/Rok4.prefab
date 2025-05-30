@@ -240,5 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originSide: 0
+  rokSize: 0
   destroyDelay: 1
-  rokRandomScriptableObject: {fileID: 11400000, guid: 85efd2df230d8c049bf8266158efa0ca, type: 2}
+  explosionParticles: {fileID: 7630236679980478688, guid: 915e3e20222c36e4499e96a99e0d30de, type: 3}
