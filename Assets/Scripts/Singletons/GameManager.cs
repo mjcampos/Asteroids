@@ -41,4 +41,8 @@ public class GameManager : MonoBehaviour {
     public void CountdownEnded() {
         Time.timeScale = 1f;
     }
+
+    public void GameOver() {
+        Debug.Log("Game Over");
+    }
 }

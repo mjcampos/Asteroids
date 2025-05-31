@@ -42,6 +42,7 @@ namespace Rok {
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+                
                 GameObject explosionInstance = Instantiate(explosionParticles, transform.position, Quaternion.identity);
                 
                 explosionInstance.transform.localScale = Vector3.one * (int)rokSize;

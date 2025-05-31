@@ -6,9 +6,13 @@ using UnityEngine;
 namespace Player {
     public class Collision : MonoBehaviour
     {
+        [Header("Taking Damage")]
         [SerializeField] float invincibilityDuration = 3f;
-
         [SerializeField] float flickerInterval = 0.2f;
+        
+        [Header("Explosion Particle")]
+        [SerializeField] GameObject particlePrefab;
+        [SerializeField] int explosionScale = 3;
 
         Shooting _shooting;
         Collider2D _collider;
@@ -33,6 +37,28 @@ namespace Player {
             if (other.CompareTag("Rok") && !_isInvincible) {
                 HandlePlayerHit();
                 LivesManager.Instance.DecrementLives();
+
+                // Check if the player has no lives left
+                if (LivesManager.Instance.GetCurrentLives() < 1) {
+                    /*
+                     * If no lives left:
+                     * 1. Instantiate explosion
+                     * 2. Destroy the player
+                     * 3. Trigger GameOver sequence
+                     */
+                    
+                    // Step 1
+                    GameObject explosionInstance = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+                
+                    explosionInstance.transform.localScale = Vector3.one * explosionScale;
+                    explosionInstance.transform.SetParent(null);
+                    
+                    // Step 2
+                    Destroy(gameObject);
+                    
+                    // Step 3
+                    GameManager.Instance.GameOver();
+                }
             }
         }
 

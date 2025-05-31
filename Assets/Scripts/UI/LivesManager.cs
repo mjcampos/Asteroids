@@ -28,13 +28,9 @@ namespace UI {
         }
         
         public void DecrementLives() {
-            if (currentLives > 1) {
-                currentLives--;
-                
-                RemoveLifeImage();
-            } else {
-                Debug.Log("Game Over");
-            }
+            currentLives--;
+            
+            RemoveLifeImage();
         }
 
         void SetLiveImages() {
@@ -46,8 +42,7 @@ namespace UI {
         }
 
         void RemoveLifeImage() {
-            for (int i = 0; i < lifeImages.Length; i++)
-            {
+            for (int i = 0; i < lifeImages.Length; i++) {
                 GameObject life = lifeImages[i];
 
                 if (life.activeSelf) {
@@ -55,6 +50,10 @@ namespace UI {
                     return;
                 }
             }
+        }
+        
+        public int GetCurrentLives() {
+            return currentLives;
         }
     }
 }
