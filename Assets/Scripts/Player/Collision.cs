@@ -44,7 +44,7 @@ namespace Player {
                      * If no lives left:
                      * 1. Instantiate explosion
                      * 2. Destroy the player
-                     * 3. Trigger GameOver sequence
+                     * 3. Trigger GameOver
                      */
                     
                     // Step 1
@@ -62,8 +62,7 @@ namespace Player {
             }
         }
 
-        void HandlePlayerHit()
-        {
+        void HandlePlayerHit() {
             StartCoroutine(RespawnRoutine());
         }
 

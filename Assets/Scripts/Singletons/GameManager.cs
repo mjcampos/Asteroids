@@ -1,10 +1,18 @@
-using System;
-using TMPro;
+using System.Collections;
 using UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
+    
+    [SerializeField] InputActionAsset inputActionAsset;
+    
+    InputActionMap _uiInputActionMap;
+    InputAction _restartInputAction;
+
+    bool _isGameOver;
     
     void Awake() {
         // Singleton pattern
@@ -18,6 +26,24 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        _uiInputActionMap = inputActionAsset.FindActionMap("UI");
+
+        _restartInputAction = _uiInputActionMap.FindAction("Restart");
+        
+        LoadGame();
+    }
+
+    void Update() {
+        RestartListener();
+    }
+
+    void RestartListener() {
+        if (_restartInputAction.triggered && _isGameOver) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    void LoadGame() {
         /*
          * When scene loads:
          * 1. Freeze the scene
@@ -26,6 +52,7 @@ public class GameManager : MonoBehaviour {
          */
         
         // Step 1
+        _isGameOver = false;
         Time.timeScale = 0f;
         
         // Step 2
@@ -35,7 +62,6 @@ public class GameManager : MonoBehaviour {
          * Step 3
          * CountdownEnded gets called at the end of the countdown sequence
          */
-        
     }
 
     public void CountdownEnded() {
@@ -43,6 +69,26 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver() {
-        Debug.Log("Game Over");
+        StartCoroutine(PauseThenContinue());
+    }
+
+    IEnumerator PauseThenContinue() {
+        /*
+         * When game ends:
+         * 1. Freeze the scene
+         * 2. Display game over screen
+         * 3. Give the player the chance to play again
+         */
+        
+        yield return new WaitForSecondsRealtime(0.5f);
+        
+        // Step 1
+        Time.timeScale = 0f;
+        
+        // Step 2
+        GameOverManager.Instance.DisplayGameOverScreen();
+        
+        // Step 3
+        _isGameOver = true;
     }
 }
