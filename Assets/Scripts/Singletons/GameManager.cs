@@ -30,6 +30,12 @@ public class GameManager : MonoBehaviour {
         
         // Step 2
         CountdownManager.Instance.StartCountdown();
+        
+        /*
+         * Step 3
+         * CountdownEnded gets called at the end of the countdown sequence
+         */
+        
     }
 
     public void CountdownEnded() {
