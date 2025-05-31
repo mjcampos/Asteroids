@@ -8,10 +8,12 @@ namespace Rok {
         [SerializeField] RokSize rokSize;
         [SerializeField] float destroyDelay = 1f;
         [SerializeField] GameObject explosionParticles;
+        [SerializeField] int points;
 
-        public void SetProperties(SpawnSide _originSide, RokSize _rokSize) {
+        public void SetProperties(SpawnSide _originSide, RokSize _rokSize, int _points) {
             originSide = _originSide;
             rokSize = _rokSize;
+            points = _points;
         }
 
         /**
@@ -43,11 +45,16 @@ namespace Rok {
                         throw new ArgumentOutOfRangeException();
                 }
                 
+                // Pass along its points to a score manager if the rok is destroyed by collision with laser
+                if (other.CompareTag("Laser")) ScoreManager.Instance.UpdateScore(points);
+                
+                // Instantiate an explosion
                 GameObject explosionInstance = Instantiate(explosionParticles, transform.position, Quaternion.identity);
                 
                 explosionInstance.transform.localScale = Vector3.one * (int)rokSize;
                 explosionInstance.transform.SetParent(null);
                 
+                // Then destroy the rok
                 Destroy(gameObject);
             }
         }

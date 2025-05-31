@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rokSize: 1
   rokPrefabsSO: {fileID: 11400000, guid: 175512fedc8b8ed44a93de843371686a, type: 2}
+  points: 5

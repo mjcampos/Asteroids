@@ -42,7 +42,7 @@ namespace Rok {
                 // Set up rok's spawn side
                 Destruction destruction = rokInstance.GetComponent<Destruction>();
                 
-                destruction.SetProperties(SpawnSide.Center, rokData.Size);
+                destruction.SetProperties(SpawnSide.Center, rokData.Size, rokData.Points);
             }
         }
     }

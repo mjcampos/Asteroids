@@ -10,11 +10,12 @@ public enum RokSize {
 public class RokScriptableObject : ScriptableObject {
     public RokSize rokSize;
     public RokPrefabsSO rokPrefabsSO;
+    public int points;
     
     public RokData GenerateRandomRok() {
         GameObject[] prefabs = rokPrefabsSO.rokPrefabs;
         GameObject rokInstance = prefabs[Random.Range(0, prefabs.Length)];
         
-        return new RokData(rokInstance, rokSize);
+        return new RokData(rokInstance, rokSize, points);
     }
 }
