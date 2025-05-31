@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UI;
 using UnityEngine;
 
 namespace Player {
@@ -24,10 +25,14 @@ namespace Player {
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Rok") && !_isInvincible)
-            {
-                Debug.Log("Player has been hit");
+            /*
+             * If player has been hit:
+             * 1. Trigger HandlePlayerHit sequence
+             * 2. Deduct a life
+             */
+            if (other.CompareTag("Rok") && !_isInvincible) {
                 HandlePlayerHit();
+                LivesManager.Instance.DecrementLives();
             }
         }
 
@@ -63,4 +68,3 @@ namespace Player {
         }
     }
 }
-
