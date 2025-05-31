@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     
     InputActionMap _uiInputActionMap;
     InputAction _restartInputAction;
+    InputAction _backInputAction;
 
     bool _isGameOver;
     
@@ -29,17 +30,25 @@ public class GameManager : MonoBehaviour {
         _uiInputActionMap = inputActionAsset.FindActionMap("UI");
 
         _restartInputAction = _uiInputActionMap.FindAction("Restart");
+        _backInputAction = _uiInputActionMap.FindAction("Back");
         
         LoadGame();
     }
 
     void Update() {
         RestartListener();
+        BackListener();
     }
 
     void RestartListener() {
         if (_restartInputAction.triggered && _isGameOver) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    void BackListener() {
+        if (_backInputAction.triggered) {
+            SceneManager.LoadScene("Main Menu");
         }
     }
 
