@@ -19,9 +19,7 @@ namespace Laser
                 StartCoroutine(DestroyAfterDelay());
             }
 
-            if (other.CompareTag("Rok")) {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
 
         IEnumerator DestroyAfterDelay() {

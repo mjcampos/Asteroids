@@ -26,6 +26,11 @@ namespace Rok {
         [SerializeField] float minAngle = 120f;
         [SerializeField] float maxAngle = 240f;
         [SerializeField] float lineLength = 4f;
+
+        [Header("UFO Spawning")]
+        [SerializeField] UFOSO ufoso;
+        
+        public bool SpawnChosen { get; set; } = false;
         
         void Start() {
             StartCoroutine(SpawnLoop());
@@ -34,30 +39,62 @@ namespace Rok {
         IEnumerator SpawnLoop() {
             while (true) {
                 yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
-                
-                // Spawn a rok
-                RokData rokData = rokRandomScriptableObject.GenerateRandomRok();
-                GameObject rokInstance = Instantiate(rokData.Prefab, GetRandomPointInBounds(), Quaternion.identity);
-                
-                // Set the rok size
-                rokInstance.transform.localScale = Vector3.one * (int)rokData.Size;
-                
-                // Place the instance in the rok parent object
-                rokInstance.transform.SetParent(rokParent.transform);
-                
-                // Set up move direction and launch rok
-                Movement rokMovement = rokInstance.GetComponent<Movement>();
-                float angleDeg = Random.Range(minAngle, maxAngle);
-                float angleRad = angleDeg * Mathf.Deg2Rad;
-                Vector2 moveDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)).normalized;
-                
-                rokMovement.Launch(moveDirection);
-                
-                // Set the rok's spawn side
-                Destruction destruction = rokInstance.GetComponent<Destruction>();
-                
-                destruction.SetProperties(spawnSide, rokData.Size, rokData.Points);
+
+                if (SpawnChosen) {
+                    SpawnUFO();
+                } else {
+                    SpawnRok();
+                }
             }
+        }
+
+        void SpawnRok() {
+            // Spawn a rok
+            RokData rokData = rokRandomScriptableObject.GenerateRandomRok();
+            GameObject rokInstance = Instantiate(rokData.Prefab, GetRandomPointInBounds(), Quaternion.identity);
+                
+            // Set the rok size
+            rokInstance.transform.localScale = Vector3.one * (int)rokData.Size;
+                
+            // Place the instance in the rok parent object
+            rokInstance.transform.SetParent(rokParent.transform);
+                
+            // Set up move direction and launch rok
+            Movement rokMovement = rokInstance.GetComponent<Movement>();
+            float angleDeg = Random.Range(minAngle, maxAngle);
+            float angleRad = angleDeg * Mathf.Deg2Rad;
+            Vector2 moveDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)).normalized;
+                
+            rokMovement.Launch(moveDirection);
+                
+            // Set the rok's spawn side
+            Destruction destruction = rokInstance.GetComponent<Destruction>();
+                
+            destruction.SetProperties(spawnSide, rokData.Size, rokData.Points);
+        }
+
+        void SpawnUFO() {
+            // Spawn a UFO
+            GameObject ufoInstance = Instantiate(ufoso.prefab, GetRandomPointInBounds(), Quaternion.identity);
+            
+            // Place the instance in the rok parent object
+            ufoInstance.transform.SetParent(rokParent.transform);
+                    
+            // Set up move direction and launch ufo
+            UFO.Movement ufoMovement = ufoInstance.GetComponent<UFO.Movement>();
+            float angleDeg = Random.Range(minAngle, maxAngle);
+            float angleRad = angleDeg * Mathf.Deg2Rad;
+            Vector2 moveDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)).normalized;
+
+            ufoMovement.Launch(moveDirection);
+                    
+            // Set the rok's spawn side
+            UFO.Destruction destruction = ufoInstance.GetComponent<UFO.Destruction>();
+            
+            destruction.SetProperties(spawnSide, ufoso.points);
+            
+            // UFO spawning is done, so we can stop the spawning loop
+            SpawnChosen = false;
         }
 
         Vector2 GetRandomPointInBounds() {

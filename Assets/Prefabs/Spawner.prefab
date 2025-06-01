@@ -100,3 +100,4 @@ MonoBehaviour:
   minAngle: 120
   maxAngle: 240
   lineLength: 4
+  ufoso: {fileID: 11400000, guid: d663a25d5a641284591649fe6d367d32, type: 2}

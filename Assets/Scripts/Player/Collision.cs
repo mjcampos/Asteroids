@@ -35,7 +35,7 @@ namespace Player {
              * 1. Trigger HandlePlayerHit sequence
              * 2. Deduct a life
              */
-            if (other.CompareTag("Rok") && !_isInvincible) {
+            if (!_isInvincible) {
                 HandlePlayerHit();
                 LivesManager.Instance.DecrementLives();
 
