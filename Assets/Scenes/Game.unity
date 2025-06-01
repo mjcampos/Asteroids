@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64e879e1a599ed47a390ec1f30b9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLives: 2
+  startingLives: 1
   currentLives: 0
   lifeImages:
   - {fileID: 977851985}
@@ -2305,6 +2305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 7
   moveSpeed: 15
+  thrustClip: {fileID: 8300000, guid: 9c084fd982c437243be3f71119bf3f84, type: 3}
 --- !u!60 &1959470507
 PolygonCollider2D:
   m_ObjectHideFlags: 0

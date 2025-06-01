@@ -2,13 +2,12 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player
-{
-    public class Movement : MonoBehaviour
-    {
+namespace Player {
+    public class Movement : MonoBehaviour {
         [Header("Player Speed")]
         [SerializeField] float rotationSpeed = 7f;
         [SerializeField] float moveSpeed = 15f;
+        [SerializeField] AudioClip thrustClip;
         
         Rigidbody2D _rigidbody;
         float _rotationDirection;
@@ -22,8 +21,7 @@ namespace Player
         float _spriteHalfWidth;
         float _spriteHalfHeight;
         
-        void Start()
-        {
+        void Start() {
             _rigidbody = GetComponent<Rigidbody2D>();
             
             _mainCamera = Camera.main;
@@ -43,28 +41,28 @@ namespace Player
             }
         }
 
-        void OnMove(InputValue value)
-        {
+        void OnMove(InputValue value) {
             Vector2 movement = value.Get<Vector2>();
+            
+            if (!GameManager.Instance.IsGamePaused && movement.y != 0) {
+                AudioSource.PlayClipAtPoint(thrustClip, transform.position, 0.5f);
+            }
             
             _direction = movement.y;
         }
 
-        void OnRotate(InputValue value)
-        {
+        void OnRotate(InputValue value) {
             Vector2 rotation = value.Get<Vector2>();
             
             _rotationDirection = -rotation.x;
         }
 
-        void FixedUpdate()
-        {
+        void FixedUpdate() {
             _rigidbody.SetRotation(_rigidbody.rotation + (_rotationDirection * rotationSpeed));
             _rigidbody.linearVelocity = transform.up * _direction * moveSpeed;
         }
 
-        void LateUpdate()
-        {
+        void LateUpdate() {
             Vector3 newPos = transform.position;
 
             if (newPos.x > _halfScreenWidth + _spriteHalfWidth)

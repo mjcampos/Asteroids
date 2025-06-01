@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
 
     bool _isGameOver;
     
+    public bool IsGamePaused { get; set;  } = false;
+
     void Awake() {
         // Singleton pattern
         if (Instance != null && Instance != this)
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour {
         // Step 1
         _isGameOver = false;
         Time.timeScale = 0f;
+        IsGamePaused = true;
         
         // Step 2
         CountdownManager.Instance.StartCountdown();
@@ -75,6 +78,7 @@ public class GameManager : MonoBehaviour {
 
     public void CountdownEnded() {
         Time.timeScale = 1f;
+        IsGamePaused = false;
     }
 
     public void GameOver() {
