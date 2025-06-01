@@ -4,11 +4,15 @@ using UnityEngine;
 
 namespace Rok {
     public class Destruction : MonoBehaviour {
+        [Header("Rok Properties")]
         [SerializeField] SpawnSide originSide;
         [SerializeField] RokSize rokSize;
-        [SerializeField] float destroyDelay = 1f;
-        [SerializeField] GameObject explosionParticles;
         [SerializeField] int points;
+        
+        [Header("Explosion Properties")]
+        [SerializeField] GameObject explosionParticles;
+        [SerializeField] AudioClip explosionClip;
+        [SerializeField] float destroyDelay = 1f;
 
         public void SetProperties(SpawnSide _originSide, RokSize _rokSize, int _points) {
             originSide = _originSide;
@@ -53,6 +57,9 @@ namespace Rok {
                 
                 explosionInstance.transform.localScale = Vector3.one * (int)rokSize;
                 explosionInstance.transform.SetParent(null);
+                
+                // Generate explosion audio
+                AudioSource.PlayClipAtPoint(explosionClip, transform.position);
                 
                 // Then destroy the rok
                 Destroy(gameObject);

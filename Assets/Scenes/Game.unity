@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64e879e1a599ed47a390ec1f30b9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLives: 1
+  startingLives: 2
   currentLives: 0
   lifeImages:
   - {fileID: 977851985}
@@ -2439,6 +2439,7 @@ MonoBehaviour:
   flickerInterval: 0.2
   particlePrefab: {fileID: 7630236679980478688, guid: 915e3e20222c36e4499e96a99e0d30de, type: 3}
   explosionScale: 3
+  explosionClip: {fileID: 8300000, guid: 98851ab167e59fb469b8a4d96e572989, type: 3}
 --- !u!1 &2120810545
 GameObject:
   m_ObjectHideFlags: 0

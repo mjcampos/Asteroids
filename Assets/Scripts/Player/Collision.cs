@@ -13,6 +13,7 @@ namespace Player {
         [Header("Explosion Particle")]
         [SerializeField] GameObject particlePrefab;
         [SerializeField] int explosionScale = 3;
+        [SerializeField] AudioClip explosionClip;
 
         Shooting _shooting;
         Collider2D _collider;
@@ -43,8 +44,9 @@ namespace Player {
                     /*
                      * If no lives left:
                      * 1. Instantiate explosion
-                     * 2. Destroy the player
-                     * 3. Trigger GameOver
+                     * 2. Play explosion sound
+                     * 3. Destroy the player
+                     * 4. Trigger GameOver
                      */
                     
                     // Step 1
@@ -54,9 +56,12 @@ namespace Player {
                     explosionInstance.transform.SetParent(null);
                     
                     // Step 2
-                    Destroy(gameObject);
+                    AudioSource.PlayClipAtPoint(explosionClip, transform.position);;
                     
                     // Step 3
+                    Destroy(gameObject);
+                    
+                    // Step 4
                     GameManager.Instance.GameOver();
                 }
             }
@@ -66,8 +71,7 @@ namespace Player {
             StartCoroutine(RespawnRoutine());
         }
 
-        IEnumerator RespawnRoutine()
-        {
+        IEnumerator RespawnRoutine() {
             _isInvincible = true;
             _collider.enabled = false;
             
