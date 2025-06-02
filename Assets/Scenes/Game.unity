@@ -369,7 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 346513642}
   - component: {fileID: 346513643}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,8 +412,8 @@ MonoBehaviour:
   - {fileID: 789574407}
   - {fileID: 493758878}
   - {fileID: 1758703309}
-  minSpawnTime: 10
-  maxSpawnTime: 20
+  minSpawnTime: 2
+  maxSpawnTime: 15
 --- !u!1 &415802508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64e879e1a599ed47a390ec1f30b9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLives: 1
+  startingLives: 2
   currentLives: 0
   lifeImages:
   - {fileID: 977851985}
@@ -2154,7 +2154,7 @@ GameObject:
   - component: {fileID: 1959470511}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
