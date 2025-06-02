@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6091743523995387946}
   - component: {fileID: -3590838723577299717}
   - component: {fileID: 1629766006220018885}
+  - component: {fileID: -2288403163799535208}
   m_Layer: 8
   m_Name: UFO
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2295067412007740834, guid: 4d91d750f18e5414792b646ca58f5ac7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -357,3 +358,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2288403163799535208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617501846594879412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7694473f882696948925cb9d4e42b956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 8031633339199667974, guid: be15548d872a1b4478068fbfc7a8e048, type: 3}
+  fireInterval: 2

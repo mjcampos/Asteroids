@@ -412,7 +412,7 @@ MonoBehaviour:
   - {fileID: 789574407}
   - {fileID: 493758878}
   - {fileID: 1758703309}
-  minSpawnTime: 2
+  minSpawnTime: 5
   maxSpawnTime: 15
 --- !u!1 &415802508
 GameObject:
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64e879e1a599ed47a390ec1f30b9166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLives: 2
+  startingLives: 3
   currentLives: 0
   lifeImages:
   - {fileID: 977851985}
